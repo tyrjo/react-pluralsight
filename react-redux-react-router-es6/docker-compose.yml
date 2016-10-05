@@ -4,10 +4,9 @@ services:
   app:
     build: .
     ports:
-     - "9005:9005"    # Node web server
-     - "35729:35729"  # Live reload port
+     - "3000:3000"    # Node web server
     working_dir: /app
     volumes:
      - ./:/app/
      - /app/node_modules
-    entrypoint: ["/app/node_modules/.bin/gulp"]
+    entrypoint: ["npm",  "start", "-s"]

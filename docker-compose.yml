@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  app:
+    build: .
+    ports:
+     - "9005:9005"    # Node web server
+     - "35729:35729"  # Live reload port
+    working_dir: /app
+    volumes:
+     - ./:/app/
+     - /app/node_modules
+    entrypoint: ["/app/node_modules/.bin/gulp"]
